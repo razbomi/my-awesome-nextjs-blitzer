@@ -3,6 +3,7 @@ import Layout from "app/layouts/Layout"
 import logout from "app/auth/mutations/logout"
 import { useCurrentUser } from "app/hooks/useCurrentUser"
 import { Suspense } from "react"
+import { Welcome } from "app/auth/components/Admin"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -25,9 +26,13 @@ const UserInfo = () => {
           Logout
         </button>
         <div>
+          <img src={currentUser.picture || ""} />
+          <br />
           User id: <code>{currentUser.id}</code>
           <br />
           User role: <code>{currentUser.role}</code>
+          <br />
+          <Welcome name={currentUser.name} role={currentUser.role} />
         </div>
       </>
     )
